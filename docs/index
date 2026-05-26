@@ -1,0 +1,19 @@
+# Documentação da Linguagem Go
+
+Bem-vindo à documentação introdutória da linguagem Go.
+
+## Conteúdo
+
+- Introdução e Instalação
+- Sintaxe Básica e Variáveis
+- Estruturas de Controle
+- Arrays, Slices e Maps
+- Structs e Métodos
+- Tratamento de Erros
+- Goroutines
+- Channels
+- Go Modules
+- Testes Automatizados
+
+!!! note "Objetivo"
+    Este projeto foi desenvolvido utilizando Zensical e GitHub Actions.
