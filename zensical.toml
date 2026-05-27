@@ -49,7 +49,7 @@ nav = [
   { "Introdução e Instalação" = "introducao-instalacao.md" },
   { "Sintaxe Básica e Variáveis" = "sintaxeVar.md" },
   { "Estruturas de Controle (If, For e Switch)" = "estruturaControle.md" },
-  { "Arrays, Slices e Maps" = "arraysSlicesMaps" },
+  { "Arrays, Slices e Maps" = "arraysSlicesMaps"},
   { "Structs e Métodos" = "structsMetodos.md" },
 ]
 
