@@ -47,7 +47,8 @@ Copyright &copy; 2026 The authors
 nav = [
   { "Home" = "index.md" },
   { "Introdução e Instalação" = "introducao-instalacao.md" },
-  { "Sintaxe Básica e Variáveis" = "sintaxeVar.md",
+  { "Sintaxe Básica e Variáveis" = "sintaxeVar.md" },
+  { "Estruturas de Controle (If, For e Switch)" },
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize
