@@ -51,6 +51,7 @@ nav = [
   { "Estruturas de Controle (If, For e Switch)" = "estruturaControle.md" },
   { "Arrays, Slices e Maps" = "arraysSlicesMaps"},
   { "Structs e Métodos" = "structsMetodos.md" },
+  { "Tratamento d Erros(Error Handling)" = "tratamentoerros.md" },
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize
