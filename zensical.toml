@@ -54,7 +54,7 @@ nav = [
   { "Tratamento de Erros(Error Handling)" = "tratamentoerros.md" },
   { "Concorrência 1: Goroutines" = "goroutines.md" },
   { "Concorrência 2: Channels" = "channels.md" },
-  { "Gerenciamento de Pacotes(Go Modules)" = "gerpacotes.md" },
+  { "Gerenciamento de Pacotes(Go Modules)" = "gerpacotesGM.md" },
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize
