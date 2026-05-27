@@ -1,1 +1,1 @@
-Commit deve ser bloqueado
+Fazer após finalização do projeto
