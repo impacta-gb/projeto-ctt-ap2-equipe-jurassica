@@ -48,7 +48,7 @@ nav = [
   { "Home" = "index.md" },
   { "Introdução e Instalação" = "introducao-instalacao.md" },
   { "Sintaxe Básica e Variáveis" = "sintaxeVar.md" },
-  { "Estruturas de Controle (If, For e Switch)" },
+  { "Estruturas de Controle (If, For e Switch)" = "estruturaControle.md" },
 ]
 
 # With the "extra_css" option you can add your own CSS styling to customize
