@@ -131,3 +131,146 @@ Pacotes são utilizados para organizar e modularizar o código.
 
 ```go
 import "fmt"
+```
+
+A palavra-chave `import` é utilizada para importar bibliotecas.
+
+O pacote `fmt` pertence à biblioteca padrão do Go e é utilizado para:
+- impressão de texto
+- formatação
+- entrada e saída de dados
+
+---
+
+## Função main
+
+```go
+func main()
+```
+
+A função `main()` representa o ponto de entrada da aplicação.
+
+Quando o programa é executado, é essa função que será iniciada automaticamente.
+
+!!! warning "Importante"
+    Sem a função `main()`, o programa não poderá ser executado como aplicação.
+
+---
+
+## fmt.Println()
+
+```go
+fmt.Println("Olá, mundo!")
+```
+
+O comando `Println()` imprime informações no terminal.
+
+O `ln` significa "line", indicando que uma nova linha será criada após a impressão.
+
+---
+
+# Executando o Programa
+
+Para executar o programa, utilize o comando:
+
+```bash
+go run main.go
+```
+
+A saída será:
+
+```text
+Olá, mundo!
+```
+
+---
+
+# Compilando o Programa
+
+Go é uma linguagem compilada.
+
+Isso significa que o código-fonte pode ser transformado em um executável independente.
+
+Para compilar:
+
+```bash
+go build
+```
+
+Após a compilação:
+
+- No Windows será criado um `.exe`
+- No Linux/macOS será criado um binário executável
+
+---
+
+# Estrutura Básica de um Projeto Go
+
+Um projeto simples geralmente possui a seguinte estrutura:
+
+```text
+meu-projeto/
+│
+├── go.mod
+├── main.go
+└── README.md
+```
+
+## Arquivos importantes
+
+| Arquivo | Função |
+|---|---|
+| go.mod | Gerencia dependências |
+| main.go | Código principal |
+| README.md | Documentação do projeto |
+
+---
+
+# Gerenciamento de Dependências
+
+Go utiliza um sistema chamado Go Modules para controlar dependências.
+
+Para inicializar um projeto Go:
+
+```bash
+go mod init meu-projeto
+```
+
+Isso criará automaticamente o arquivo:
+
+```text
+go.mod
+```
+
+---
+
+# Vantagens da Linguagem Go
+
+Go possui diversas vantagens no desenvolvimento moderno:
+
+- Simplicidade
+- Performance
+- Compilação rápida
+- Facilidade de deploy
+- Concorrência nativa
+- Código legível
+- Excelente suporte para backend
+
+Além disso, a linguagem possui uma comunidade ativa e documentação oficial extremamente bem organizada.
+
+---
+
+# Conclusão
+
+Go é uma linguagem moderna, eficiente e relativamente simples de aprender. Sua combinação de performance, simplicidade e concorrência faz dela uma excelente escolha para aplicações backend, microsserviços e sistemas escaláveis.
+
+Nos próximos tópicos serão abordados:
+- variáveis
+- estruturas de controle
+- arrays
+- slices
+- maps
+- concorrência
+- tratamento de erros
+- testes automatizados
+- módulos e pacotes
