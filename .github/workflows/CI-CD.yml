@@ -1,112 +1,110 @@
-name: CI-CD Pipeline
+name: CI/CD Zensical
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 
-  pull_request:
+  push:
     branches:
       - main
 
   schedule:
     - cron: '0 0 * * 0'
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
 
   validate:
+    name: validate (${{ matrix.python-version }})
+
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: [3.10, 3.11]
+        python-version: ['3.10', '3.11']
 
     steps:
-      - name: Checkout do repositório
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configurar Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Cache do pip
-        uses: actions/cache@v4
+      - name: Cache pip
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ matrix.python-version }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          key: ${{ runner.os }}-${{ matrix.python-version }}
 
-      - name: Instalar Zensical
+      - name: Install Zensical
         run: pip install zensical
 
-      - name: Validar build do site
-        run: zensical build --clean
+      - name: Build documentation
+        run: zensical build
 
   build_site:
-    runs-on: ubuntu-latest
+    name: build_site
+
     needs: validate
 
+    if: github.event_name == 'push' || github.event_name == 'schedule'
+
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout do repositório
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Configurar Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: '3.11'
 
-      - name: Cache do pip
-        uses: actions/cache@v4
+      - name: Cache pip
+        uses: actions/cache@v3
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-build-pip
-          restore-keys: |
-            ${{ runner.os }}-build-pip
+          key: build-${{ runner.os }}
 
-      - name: Instalar Zensical
+      - name: Install Zensical
         run: pip install zensical
 
-      - name: Gerar site
-        run: zensical build --clean
+      - name: Build site
+        run: zensical build
 
-      - name: Upload do artefato
+      - name: Verify generated files
+        run: ls -R
+
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: site-files
-          path: site
+          name: site-output
+          path: site/
 
   deploy_site:
-    runs-on: ubuntu-latest
+    name: deploy_site
+
     needs: build_site
 
-    if: github.event_name != 'pull_request'
+    if: github.event_name == 'push' || github.event_name == 'schedule'
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
 
     steps:
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Download do artefato
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: site-files
-          path: site
+          name: site-output
+          path: site/
 
-      - name: Upload para GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: site
-
-      - name: Deploy no GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site/
+          publish_branch: gh-pages
