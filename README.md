@@ -9,6 +9,12 @@
 
 ---
 
+# Site Publicado
+
+[Documentação da Linguagem Go](https://impacta-gb.github.io/projeto-ctt-ap2-equipe-jurassica/)
+
+---
+
 # Sobre o Projeto
 
 Este projeto foi desenvolvido para a criação de uma documentação da linguagem Go utilizando Zensical, GitHub Actions e GitHub Pages.
@@ -179,14 +185,6 @@ Responsável pela publicação no GitHub Pages.
 # Publicação
 
 O deploy do site ocorre automaticamente após merge na branch `main`.
-
----
-
-# Site Publicado
-
-```text id="v5uxja"
-https://impacta-gb.github.io/projeto-ctt-ap2-equipe-jurassica/
-```
 
 ---
 
